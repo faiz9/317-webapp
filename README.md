@@ -10,18 +10,17 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
-
-
+| Student Name  | Syed Faiz     |
+| Student ID    | 921438645       |
+| Student Email | sfaiz@mail.sfsu.edu   |
 
 # Build/Run Instructions
 
 ## Build Instructions
-1. steps here
-2. steps here
+1. Clone respository using HTTP on git.
+2. After cloning the repository, go to terminal and type:     cd copy and paste the application folder from repository folder and enter.
+3. Then enter npm install
 
 ## Run Instructions
-1. steps here
-2. steps here 
+1. npm start
+2. open your web browser and under the url section type localhost:3000

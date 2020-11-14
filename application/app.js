@@ -8,12 +8,14 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+// Middlewares; executed in order defined
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//localhost:3000/login
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
