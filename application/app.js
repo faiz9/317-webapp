@@ -12,40 +12,27 @@ var app = express();
 
 app.engine(
     "hbs",
-    handlebars(
-        layoutsDir, path.join(__dirname, "views/layouts"),
-        partialsDir, path.join(__dirname, "views/partials"),
-        extname, ".hbs",
-        defaultLayout, "home",
-        helpers, {
+    handlebars({
+        layoutsDir: path.join(__dirname, "views/layouts"),
+        partialsDir: path.join(__dirname, "views/partials"),
+        extname: ".hbs",
+        defaultLayout: "home",
+        helpers: {
 
         }
-    )
+    })
+
 );
 
 
-
 // Middlewares; executed in order defined
-app.set("view engine", "hbs")
+app.set("view engine", "hbs");
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use("/public", express.static(path.join(__dirname, 'public')));
 
-/*
-app.use((req,res,next) => {
-    console.log('I'M A MIDDLEWARE');
-    throw new Error('hello');
-    next();
-}) 
-
-app.use((err,req,res,next) => {
-    console.log('I'M A MIDDLEWARE ERR FUNCTION');
-    next();
-})*/
-
-//localhost:3000/login
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

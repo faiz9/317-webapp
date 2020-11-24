@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <meta charset="utf-8">
+    <head>
+      <title></title>
+    </head>
+    <link rel="stylesheet" href="public/registrationstyle.css">
+    <body>
+
+    <form id="form">
+      <h1> Sign Up for New Account</h1>
+      <p class="" id="my-message"></p>
+      <label for="name"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" id="name" name="name" > <br><br>
+        <span id="name_error"></span>
+      <label for="email"><b>Enter Email</b></label>
+        <input type="text" id="email" placeholder="Enter Email" name="email" > <br><br>
+        <span id="email_error"></span>
+      <label for="Password"><b>Password</b></label>
+         <input id="Password" type="password" placeholder="Enter Password" name="Password" > <br><br>
+         <span id="pass_error"></span>
+       <label for="ConfirmPassword"><b>Confirm Password</b></label>
+         <input id="ConfirmPassword" type="password" placeholder="Confirm Your Password" name="ConfirmPassword" > <br><br>
+         <span class="confirm-message"></span>
+      <label               for="currentPos"> <b> Are older than 13 years?</b></label>
+          <div class="rightTab">
+            <select id="dropdown" name="currentPos" class="dropdown">
+          <option disabled value>Select an option</option>
+          <option  value="Yes, I'm 13 years old">Yes, I'm 13 years old</option>
+          <option value="No, I'm not 13 years old">No, I'm not 13 years old</option>
+        </select> <br> <br>
+        </div>
+            <label for="AcceptTerms"> <b> Agree to our <a href="https://www.iLearn.edu">Privacy Policy and Terms of Service</a> </b></label>
+              <Ui class="radio"><label>Yes<input name="radio-buttons" value="1"  type="radio" class="AcceptTerms" ></label></Ui>
+            </div>
+              <Ui class="radio"><label>No<input name="radio-buttons" value="2"  type="radio" class="AcceptTerms" ></label></Ui> <br>
+
+     <button id="submitBtn" type="submit">Submit</button>
+      </form>
+
+    </form>
+    <script src="main.js"></script>
+    </body>
+</html>
