@@ -19,4 +19,8 @@ router.get('/postimage', (req, res, next) => {
     res.render("postimage");
 });
 
+router.get('/ImagePost', (req, res, next) => {
+    res.render("ImagePost");
+});
+
 module.exports = router;
