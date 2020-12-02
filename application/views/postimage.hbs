@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href= "public/css/style.css">
+</head>
+<body>
+
+<form class="form-box">
+   <h1 class="form-box-h1"> Welcome, Syed!</h1>
+  <p> This is where you can post your image, title, and caption.</p>
+
+  <p>Click here to add post: <button class="btn-addpost" type="add">Add Post</button></p>
+
+  <p> Add your post title: <label for="title"></label>
+    <input class="post-title" type="text" placeholder="Enter Post Title" name="title" required></p>
+
+  <p>Click here to upload image: <button class="btn-upload" type="image">Upload</button>
+  Accepted file types: jpg, jpeg and png.
+  </p>
+
+<p>Add Your Image Description Below (50 words max):</p>
+
+  <textarea class="text-box" rows="4" cols="50" name="description" required></textarea>
+
+  <p> Agree to <a class="user-policy" href="https://www.iLearn.edu">Our Acceptable Use Policy for Uploading Images:</a></p>
+
+      <input type="checkbox">
+  <label for="Yes">Yes</label>
+  <input type="checkbox">
+  <label for="No">No</label> <br><br>
+
+  <button class="btn-submit" type="submit">Submit</button>
+
+</form>
+</body>
+</html>
