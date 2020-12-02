@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 //localhost:3000/login
 router.get('/', function(req, res, next) {
-    res.render('index');
+    res.render('index', { name: 'Syed' });
 });
 
 router.get('/login', (req, res, next) => {
