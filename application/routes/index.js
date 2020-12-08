@@ -4,23 +4,23 @@ var router = express.Router();
 /* GET home page. */
 //localhost:3000/login
 router.get('/', function(req, res, next) {
-    res.render('index', { name: 'Syed' });
+    res.render('index', { title: 'Syeds App' });
 });
 
 router.get('/login', (req, res, next) => {
-    res.render("login");
+    res.render("login", { title: 'Log In' });
 });
 
 router.get('/registration', (req, res, next) => {
-    res.render("registration");
+    res.render("registration", { title: 'Register' });
 });
 
 router.get('/postimage', (req, res, next) => {
-    res.render("postimage");
+    res.render("postimage", { title: 'Create a Post' });
 });
 
 router.get('/ImagePost', (req, res, next) => {
-    res.render("ImagePost");
+    res.render("ImagePost", { title: 'Post' });
 });
 
 module.exports = router;
