@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 });
 //professor used register instead of registration
 router.post('/registration', (req, res, next) => {
+
     let username = req.body.username;
     let email = req.body.email;
     let password = req.body.password;
@@ -67,5 +68,34 @@ router.post('/registration', (req, res, next) => {
         });
 
 });
+
+
+router.post('/login', (req, res, next) => {
+    let username = req.body.username;
+    let password = req.body.password;
+
+    /* do server side validation*/
+
+    let baseSQL = "SELECT username, password FROM users WHERE username=? AND password=?;"
+    db.execute(baseSQL, [username, password])
+        .then(([results, fields]) => {
+            if (results && results.length == 1) {
+                successPrint('User ${username} is logged in');
+                res.redirect('/');
+            } else {
+                throw new UserError("Invalid username and/or password", "/login", 200);
+            }
+        })
+        .catch((err) => {
+            errorPrint("user login failed");
+            if (err instanceof UserError) {
+                errorPrint(err.getMessage());
+                res.status(err.getStatus());
+                res.redirect('/login');
+            } else {
+                next(err);
+            }
+        })
+})
 
 module.exports = router;
