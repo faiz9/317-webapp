@@ -1,8 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var IsLoggedIn = require('../middleware/routeprotectors').userIsLoggedIn;
 
 /* GET home page. */
 //localhost:3000/login
+
+
 router.get('/', function(req, res, next) {
     res.render('homepage', { title: 'Home Page' });
 });
@@ -15,6 +18,7 @@ router.get('/registration', (req, res, next) => {
     res.render("registration", { title: 'Register' });
 });
 
+//router.use('/postimage', isLoggedIn);
 router.get('/postimage', (req, res, next) => {
     res.render("postimage", { title: 'Create a Post' });
 });
