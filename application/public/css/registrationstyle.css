@@ -20,7 +20,7 @@ body {
 
 /*form padding change*/
 
-form {
+#form {
     max-width: 300px;
     margin: 10px auto;
     padding: 20px;
@@ -64,7 +64,7 @@ input[type="radio"] {
     margin: 0 4px 8px 0;
 }
 
-button {
+#submitBtn {
     padding: 10px 20px 10px 10px;
     color: #FFF;
     background-color: #4bc970;
@@ -94,7 +94,17 @@ label {
 }
 
 @media screen and (min-width: 480px) {
-    form {
+    #form {
         max-width: 480px;
     }
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav-item {
+    padding: 10px 15px;
 }
