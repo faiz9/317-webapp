@@ -4,11 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href= "public/css/style.css">
+  <link rel="stylesheet" href="public/css/style.css">
 </head>
 <body>
-
+  <nav class="navbar navbar-expand-lg  bg-dark">
+    <a class="navbar-brand" href="#">Photo App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3v2H3V3h9zm4 16v2H3v-2h13zm6-8v2H3v-2h19z"/></svg>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/homepage">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/registration">Register</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/postimage" >Post</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" method="POST" enctype="multipart/form-data" action='/post/createPost'>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
 <form class="form-box">
    <h1 class="form-box-h1"> Welcome, Syed!</h1>
   <p> This is where you can post your image, title, and caption.</p>
@@ -18,7 +46,7 @@
   <p> Add your post title: <label for="title"></label>
     <input class="post-title" type="text" placeholder="Enter Post Title" name="title" required></p>
 
-  <p>Click here to upload image: <button class="btn-upload" type="image">Upload</button>
+  <p>Click here to upload image: <button class="btn-upload" type="image" name="uploadImage" required>Upload</button>
   Accepted file types: jpg, jpeg and png.
   </p>
 
@@ -36,5 +64,8 @@
   <button class="btn-submit" type="submit">Submit</button>
 
 </form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js" integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw==" crossorigin="anonymous"></script>
 </body>
 </html>

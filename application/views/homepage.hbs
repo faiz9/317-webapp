@@ -1,33 +1,53 @@
-<!--https://www.w3schools.com/howto/howto_js_topnav.asp-->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="public/css/style.css">
-  <form  class="container">
-<div class="topnav">
-  <a class="active" href="/login">Log In</a>
-  <a href="/registration">Register</a>
-  <a href="/postimage">Post</a>
-    <input type="text" placeholder="Search..">
-</div>
-
-  <title>Photos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styleapi.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="public/css/styleapi.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" integrity="sha512-oc9+XSs1H243/FRN9Rw62Fn8EtxjEYWHXRvjS43YtueEewbS6ObfXcJNyohjHqVKFPoXXUxwc+q1K7Dee6vv9g==" crossorigin="anonymous" />
+    <script src="public/js/script.js"></script>
 </head>
 <body>
-    <h1 class="main-heading">Photos</h1>
-    <h2 id="imageCount"></h2>
-    <div class="wrap" id="wrap"></div>
-    <button class="load-img" id="load-img" onclick="showData()">Load More</button>
+    <nav class="navbar navbar-expand-lg  bg-dark">
+        <a class="navbar-brand" href="#">Photo App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 3v2H3V3h9zm4 16v2H3v-2h13zm6-8v2H3v-2h19z"/></svg>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+          <a class="nav-link" href="/homepage">Home</a>
+        </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/registration">Register</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/postimage" >Post</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      <div class="main">
+          <div class="container-fluid">
+            <h1 class="main-heading">Photos</h1>
+            <h2 id="imageCount"></h2>
+            <div class="wrap" id="wrap"></div>
+            <button class="load-img" id="load-img" onclick="showData()">Load More</button>
+          </div>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js" integrity="sha512-8qmis31OQi6hIRgvkht0s6mCOittjMa9GMqtK9hes5iEQBQE/Ca6yGE5FsW36vyipGoWQswBj/QBm2JR086Rkw==" crossorigin="anonymous"></script>
 
 </body>
-
-    </form>
-</head>
- <script src="/public/js/script.js"></script>
 </html>
-
