@@ -18,13 +18,14 @@ router.get('/registration', (req, res, next) => {
     res.render("registration", { title: 'Register' });
 });
 
-//router.use('/postimage', isLoggedIn);
+//router.use('/postimage', isLoggedIn); //gives me error also:
 router.get('/postimage', (req, res, next) => {
-    res.render("postimage", { title: 'Create a Post' });
+    res.render("postimage", { title: 'Post an Image' });
 });
 
+/*
 router.get('/ImagePost', (req, res, next) => {
     res.render("ImagePost", { title: 'Post' });
-});
+}); */
 
 module.exports = router;
