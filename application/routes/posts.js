@@ -7,6 +7,7 @@ var sharp = require('sharp');
 var multer = require('multer');
 var crypto = require('crypto');
 const PostError = require('../helpers/debug/error/PostError');
+const { response } = require('../app');
 //var PostError = require('../helpers/error/PostError'); my app keeps crashing
 
 var storage = multer.diskStorage({
@@ -48,9 +49,11 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
         .then(([results, fields]) => {
             if (results && results.affectedRows) {
                 successPrint("Your Post was created successfully"); // video creating a new post uses flash I have errors using flash
-                res.redirect('/');
+                resp.json({ status: "OK", message: "post was created", "redirect": "/" });
+                //res.redirect('/');
             } else {
-                throw new PostError('Post could not be created!', '/postimage', 200);
+                //throw new PostError('Post could not be created!', '/postimage', 200);
+                resp.json({ status: "OK", message: "post was not created", "redirect": "/postimage" });
             }
         })
         .catch((err) => {
