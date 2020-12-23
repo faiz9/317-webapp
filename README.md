@@ -19,10 +19,11 @@ Please follow the instructions below and fill in the information requested when 
 ## Build Instructions
 1. Clone respository using HTTP on git.
 2. After cloning the repository, go to terminal and type:     cd copy and paste the application folder from repository folder and enter.
-3. Then enter npm install on terminal
+3. Then enter npm install on terminal. 
+4. Open csc317-termproject-faiz9 in vscode or editor of your choice.
 
 ## Run Instructions
-1. Install node.js, express, mysql2, bcrypt, sharp and multer.  
+1. Install node.js, express, mysql2, bcrypt, sharp and multer in terminal of your editor before running.  
 2. npm start
 3. open your web browser and under the url section type localhost:3000
 
