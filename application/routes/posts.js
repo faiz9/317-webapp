@@ -8,6 +8,7 @@ var multer = require('multer');
 var crypto = require('crypto');
 const PostError = require('../helpers/debug/error/PostError');
 const { response } = require('../app');
+const { route } = require('.');
 //var PostError = require('../helpers/error/PostError'); my app keeps crashing
 
 var storage = multer.diskStorage({
@@ -20,6 +21,7 @@ var storage = multer.diskStorage({
         cb(null, '${randomName}.${fileExt}');
     }
 });
+
 
 var uploader = multer({
     storage: storage
@@ -66,6 +68,47 @@ router.post('/createPost', uploader.single("uploadImage"), (req, res, next) => {
                 next(err);
             }
         })
+});
+
+//localhost:3000/posts/search?search=value
+router.get('/search', (req, res, next) => {
+    let searchTerm = req.query.search;
+    // res.send(req.query);
+    if (!searchTerm) {
+        res.send({
+            resultsStatus: "info",
+            message: "No search term given",
+            results: []
+        });
+    } else {
+        let baseSQL = "SELECT id, title, description, thumbnail, concat_ws('', title, description) AS haystack \
+        FROM posts \
+        HAVING haystack like ?;";
+        let sqlReadySearchTerm = "%" + searchTerm + "%";
+        db.execute(baseSQL, [sqlReadySearchTerm])
+            .then(([esults, fields]) => {
+                if (results && results.length) {
+                    res.send({
+                        resultsStatus: "info",
+                        message: '${results.length} results found',
+                        results: results
+
+                    });
+                } else {
+                    //return db.query()
+                    db.query('select id, title, description, thumbnail, created from posts ORDER BY created DESC LIMIT 4', [])
+                        .then(([results, fields]) => {
+                            res.send({
+                                resultsStatus: "info",
+                                message: "No results found but here are 4 most recent post",
+                                results: results
+
+                            });
+                        })
+                }
+            })
+            .catch((err) => next(err))
+    }
 });
 
 module.exports = router;
