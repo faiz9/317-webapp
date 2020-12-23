@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var IsLoggedIn = require('../middleware/routeprotectors').userIsLoggedIn;
+var getRecentPosts = require('../middleware/postsmiddleware').getRecentPosts;
 
 /* GET home page. */
 //localhost:3000/login
 
 
-router.get('/', function(req, res, next) {
+router.get('/', getRecentPosts, function(req, res, next) {
     res.render('homepage', { title: 'Home Page' });
 });
 
