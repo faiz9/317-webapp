@@ -23,7 +23,7 @@ Please follow the instructions below and fill in the information requested when 
 4. Open csc317-termproject-faiz9 in vscode or editor of your choice.
 
 ## Run Instructions
-1. Install node.js, express, mysql2, bcrypt, sharp and multer.  
+1. Install node.js, express, mysql2, bcrypt, sharp and multer in terminal in the editor before running.  
 2. npm start
 3. open your web browser and under the url section type localhost:3000
 
