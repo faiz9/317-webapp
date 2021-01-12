@@ -47,7 +47,7 @@ router.post('/registration', (req, res, next) => {
 
     .then(([hashedPassword]) => {
         let baseSQL = "INSERT INTO users (username, email, password, created) VALUES (?,?,?,now());"
-        return db.execute(baseSQL, [username, email, hashedPassword]); //last parameter with just password and it was working
+        return db.execute(baseSQL, [username, email, hashedPassword]);
 
     })
 
@@ -83,40 +83,37 @@ router.post('/login', (req, res, next) => {
 
     /* do server side validation*/
 
-    let baseSQL = "SELECT id, username, password FROM users WHERE username=? AND password=?;"
+    let baseSQL = "SELECT id, username, password FROM users WHERE username=?;"
     let userId;
-    db.execute(baseSQL, [username, password])
+    db.execute(baseSQL, [username])
         .then(([results, fields]) => {
             if (results && results.length == 1) {
-                //let hashedPassword = results[0].password;
-                //return bcrypt.compare(password, hashedPassword);
-                successPrint('User ${username} is logged in');
-                userId = results[0].id;
-                req.session.username = username;
-                req.session.id = userId;
-                res.locals.logged = true;
-                res.redirect('/');
+                let hashedPassword = results[0].password;
+                return bcrypt.compare(password, hashedPassword);
             } else {
-                throw new UserError("Invalid username and/or password", "/login", 200);
+                throw new UserError("invalid username and/or password!", "/login", 200);
             }
         })
 
-    /* .then((passwordsMatched) => {
+
+
+    .then((passwordsMatched) => {
         if (passwordsMatched) {
-        successPrint('User ${username} is logged in');
-        req.session.username = username;
-        res.redirect('index');
+            successPrint('User ${username} is logged in');
+            res.locals.logged = true;
+            res.render('/');
         } else {
-                throw new UserError("Invalid username and/or password", "/login", 200);
-            }
-    }) */
+            throw new UserError("Invalid username and/or password", "/login", 200);
+        }
+    })
 
     .catch((err) => {
         errorPrint("user login failed");
         if (err instanceof UserError) {
             errorPrint(err.getMessage());
             res.status(err.getStatus());
-            res.redirect('/login');
+            //res.redirect('/login');
+            res.redirect('/');
         } else {
             next(err);
         }
@@ -136,5 +133,4 @@ router.post('/logout', (req, res, next) => {
     })
 });
 
-module.exports = router;
 module.exports = router;
