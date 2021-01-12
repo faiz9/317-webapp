@@ -32,37 +32,24 @@ router.post('/registration', (req, res, next) => {
             }
 
         })
-        /*
-            .then(([results, fields]) => {
-                if (results && results.length == 0) {
-                    return bcrypt.hash(password, 15);
-                } else {
-                    throw new UserError(
-                        "Registration Failed: Email already exists",
-                        "/registration",
-                        200
-                    );
-                }
-            }) */
+        .then(([results, fields]) => {
+            if (results && results.length == 0) {
+                return bcrypt.hash(password, 15);
+            } else {
+                throw new UserError(
+                    "Registration Failed: Email already exists",
+                    "/registration",
+                    200
+                );
+            }
+        })
 
-    .then(([results, fields]) => {
-        if (results && results.length == 0) {
-            let baseSQL = "INSERT INTO users (username, email, password, created) VALUES (?,?,?,now());"
-            return db.execute(baseSQL, [username, email, password])
-        } else {
-            throw new UserError(
-                "Registration Failed: Email already exists",
-                "/registration",
-                200
-            );
-        }
-    })
 
-    /*      
-    .then((hashedPassword) => {
+    .then(([hashedPassword]) => {
         let baseSQL = "INSERT INTO users (username, email, password, created) VALUES (?,?,?,now());"
-        return db.execute(baseSQL, [username, email, hashedPassword]);
-    }) */
+        return db.execute(baseSQL, [username, email, hashedPassword]); //last parameter with just password and it was working
+
+    })
 
     .then(([results, fields]) => {
             if (results && results.affectedRows) {
